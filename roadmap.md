@@ -12,7 +12,7 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 | Testes unitários | Vitest |
 | Testes E2E | Playwright |
 | Linting / Formatação | ESLint + Prettier |
-| Análise estática | SonarCloud |
+| Análise estática | Semgrep |
 | Review IA | CodeRabbit |
 | Changelog | release-please |
 | Containerização | Docker + Docker Compose |
@@ -28,7 +28,6 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 - [ ] Configurar ESLint + Prettier (`.eslintrc.ts`, `.prettierrc`)
 - [ ] Criar aplicação Node.js mínima (servidor HTTP simples com health check `/health`)
 - [ ] Escrever primeiros testes unitários com Vitest
-- [ ] Configurar `sonar-project.properties`
 - [ ] Criar `Dockerfile` para a aplicação
 - [ ] Criar `docker-compose.yml` com a aplicação + SonarQube local
 - [ ] Criar `.env.example` com todas as variáveis necessárias documentadas
@@ -43,7 +42,7 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
   - [ ] Step: rodar ESLint
   - [ ] Step: compilar TypeScript (`tsc --noEmit`)
   - [ ] Step: rodar testes unitários com Vitest + cobertura
-  - [ ] Step: análise SonarCloud (bloqueia PR se Quality Gate falhar)
+  - [ ] Step: análise estática com Semgrep (bloqueia PR se encontrar issues críticas)
 - [ ] Configurar branch protection rules no GitHub
   - [ ] `dev` e `main`: exigir PR, exigir checks do CI, exigir 1 aprovação humana
   - [ ] Bloquear push direto
@@ -72,10 +71,10 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 
 ## Fase 4 — Qualidade e Observabilidade
 
-- [ ] Configurar thresholds do SonarCloud (cobertura mínima, ratings)
+- [ ] Configurar ruleset do Semgrep (definir quais conjuntos de regras serão aplicados e severidade mínima para bloquear o PR)
 - [ ] Escrever suíte de testes E2E cobrindo fluxos críticos da aplicação
 - [ ] Escrever smoke tests (subconjunto dos E2E, máximo 2 minutos de execução)
-- [ ] Configurar relatório de cobertura visível no PR (via SonarCloud ou Vitest reporter)
+- [ ] Configurar relatório de cobertura visível no PR (via Vitest reporter)
 - [ ] Validar que rollback manual funciona (re-executar deploy com tag anterior)
 
 ---
@@ -99,6 +98,7 @@ Registradas para referência, sem previsão de implementação.
 - **Ambientes efêmeros por PR** — cada PR sobe sua própria instância para testes isolados
 - **Feature flags** — habilitar trunk-based development com flags de feature
 - **Observabilidade** — integração com ferramentas de métricas e logs (Prometheus, Grafana, Loki)
+- **SonarQube self-hosted** — análise estática com experiência completa do Sonar via Docker, sem limitações de plano
 
 ---
 
@@ -127,7 +127,7 @@ ci: alterações nos workflows
 SSH_HOST            — endereço do servidor de deploy
 SSH_USER            — usuário SSH
 SSH_PRIVATE_KEY     — chave privada SSH
-SONAR_TOKEN         — token do SonarCloud
+SEMGREP_APP_TOKEN   — token do Semgrep (opcional, necessário para dashboard)
 EMAIL_USERNAME      — conta de email para envio de notificações
 EMAIL_PASSWORD      — app password da conta de email
 NOTIFY_EMAIL        — endereço de destino das notificações de falha
