@@ -72,25 +72,6 @@ cicd-playground/
    ```
 
 4. Acesse a aplicação em `http://localhost:3000`.
-
-## Roadmap
-
-### Fase 1 — Base do Projeto
-
-- [ ] Inicializar repositório com `pnpm init`
-- [ ] Configurar TypeScript (`tsconfig.json`)
-- [ ] Configurar ESLint + Prettier (`.eslintrc.ts`, `.prettierrc`)
-- [ ] Criar aplicação Node.js mínima (servidor HTTP simples com health check `/health`)
-- [ ] Escrever primeiros testes unitários com Vitest
-- [ ] Criar `Dockerfile` para a aplicação
-- [ ] Criar `docker-compose.yml` com a aplicação + SonarQube local
-- [ ] Criar `.env.example` com todas as variáveis necessárias documentadas
-- [ ] Criar `.gitignore` cobrindo `node_modules`, `.env`, `dist`, relatórios de teste
-
-### Fase 2 — Workflows de CI
-
-- [ ] Workflow `ci.yml` — disparado em todo PR para `dev` e `main`
-
 ---
 
 ## Licença
