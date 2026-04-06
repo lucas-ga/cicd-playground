@@ -23,15 +23,15 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 
 ## Fase 1 — Base do projeto
 
-- [ ] Inicializar repositório com `pnpm init`
-- [ ] Configurar TypeScript (`tsconfig.json`)
-- [ ] Configurar ESLint + Prettier (`.eslintrc.ts`, `.prettierrc`)
-- [ ] Criar aplicação Node.js mínima (servidor HTTP simples com health check `/health`)
-- [ ] Escrever primeiros testes unitários com Vitest
-- [ ] Criar `Dockerfile` para a aplicação
-- [ ] Criar `docker-compose.yml` com a aplicação + SonarQube local
-- [ ] Criar `.env.example` com todas as variáveis necessárias documentadas
-- [ ] Criar `.gitignore` cobrindo `node_modules`, `.env`, `dist`, relatórios de teste
+- [X] Inicializar repositório com `pnpm init`
+- [X] Configurar TypeScript (`tsconfig.json`)
+- [X] Configurar ESLint + Prettier (`.eslintrc.ts`, `.prettierrc`)
+- [X] Criar aplicação Node.js mínima (servidor HTTP simples com health check `/health`)
+- [X] Escrever primeiros testes unitários com Vitest
+- [X] Criar `Dockerfile` para a aplicação
+- [X] Criar `docker-compose.yml` com a aplicação + SonarQube local
+- [X] Criar `.env.example` com todas as variáveis necessárias documentadas
+- [X] Criar `.gitignore` cobrindo `node_modules`, `.env`, `dist`, relatórios de teste
 
 ---
 
