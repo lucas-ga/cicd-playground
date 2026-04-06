@@ -11,6 +11,10 @@ const opts: RouteShorthandOptions = {
           status: {
             type: 'string',
           },
+          timestamp: {
+            type: 'string',
+            format: 'date-time',
+          },
         },
       },
     },
@@ -18,7 +22,7 @@ const opts: RouteShorthandOptions = {
 }
 
 app.get('/health', opts, async () => {
-  return { status: 'ok' }
+  return { status: 'ok', timestamp: new Date().toISOString() }
 })
 
 export { app }
