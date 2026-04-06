@@ -6,18 +6,18 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 
 ## Stack
 
-| Camada | Ferramenta |
-|---|---|
-| Linguagem | TypeScript + Node.js |
-| Testes unitários | Vitest |
-| Testes E2E | Playwright |
-| Linting / Formatação | ESLint + Prettier |
-| Análise estática | Semgrep |
-| Review IA | CodeRabbit |
-| Changelog | release-please |
-| Containerização | Docker + Docker Compose |
-| CI/CD | GitHub Actions |
-| Notificações | action-send-mail |
+| Camada               | Ferramenta              |
+| -------------------- | ----------------------- |
+| Linguagem            | TypeScript + Node.js    |
+| Testes unitários     | Vitest                  |
+| Testes E2E           | Playwright              |
+| Linting / Formatação | ESLint + Prettier       |
+| Análise estática     | Semgrep                 |
+| Review IA            | CodeRabbit              |
+| Changelog            | release-please          |
+| Containerização      | Docker + Docker Compose |
+| CI/CD                | GitHub Actions          |
+| Notificações         | action-send-mail        |
 
 ---
 
@@ -105,6 +105,7 @@ Registradas para referência, sem previsão de implementação.
 ## Convenções
 
 **Branches:**
+
 ```
 main        ← produção, protegida
 dev         ← desenvolvimento e QA, protegida
@@ -113,6 +114,7 @@ hotfix/*    ← correções urgentes, baseada em main
 ```
 
 **Commits (Conventional Commits):**
+
 ```
 feat: descrição da nova funcionalidade
 fix: descrição da correção
@@ -123,6 +125,7 @@ ci: alterações nos workflows
 ```
 
 **Secrets necessários no GitHub:**
+
 ```
 SSH_HOST            — endereço do servidor de deploy
 SSH_USER            — usuário SSH
