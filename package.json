@@ -6,7 +6,14 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write .",
+    "start": "node index.js",
+    "dev": "jiti index.js",
+    "build": "tsc",
+    "start:prod": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
