@@ -25,4 +25,8 @@ app.get('/health', opts, async () => {
   return { status: 'ok', timestamp: new Date().toISOString() }
 })
 
+app.get('/ready', opts, async () => {
+  return { status: 'ok', timestamp: new Date().toISOString() }
+})
+
 export { app }
