@@ -2,6 +2,8 @@
 
 Este repositório é um projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Actions, Docker e ferramentas modernas de qualidade de código.
 
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/lucas-ga/cicd-playground?utm_source=oss&utm_medium=github&utm_campaign=lucas-ga%2Fcicd-playground&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+
 ## Funcionalidades
 
 - **Servidor HTTP**: Implementado em Node.js com TypeScript.
