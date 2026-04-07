@@ -37,16 +37,16 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 
 ## Fase 2 — Workflows de CI
 
-- [ ] Workflow `ci.yml` — disparado em todo PR para `dev` e `main`
-  - [ ] Step: instalar dependências com pnpm
-  - [ ] Step: rodar ESLint
-  - [ ] Step: compilar TypeScript (`tsc --noEmit`)
-  - [ ] Step: rodar testes unitários com Vitest + cobertura
-  - [ ] Step: análise estática com Semgrep (bloqueia PR se encontrar issues críticas)
-- [ ] Configurar branch protection rules no GitHub
-  - [ ] `dev` e `main`: exigir PR, exigir checks do CI, exigir 1 aprovação humana
-  - [ ] Bloquear push direto
-- [ ] Configurar CodeRabbit no repositório (`.coderabbit.yaml`)
+- [X] Workflow `ci.yml` — disparado em todo PR para `dev` e `main`
+  - [X] Step: instalar dependências com pnpm
+  - [X] Step: rodar ESLint
+  - [X] Step: compilar TypeScript (`tsc --noEmit`)
+  - [X] Step: rodar testes unitários com Vitest + cobertura
+  - [X] Step: análise estática com Semgrep (bloqueia PR se encontrar issues críticas)
+- [X] Configurar branch protection rules no GitHub
+  - [X] `dev` e `main`: exigir PR, exigir checks do CI, exigir 1 aprovação humana
+  - [X] Bloquear push direto
+- [X] Configurar CodeRabbit no repositório (`.coderabbit.yaml`)
 
 ---
 
