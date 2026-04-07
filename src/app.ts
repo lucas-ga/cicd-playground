@@ -29,4 +29,8 @@ app.get('/ready', opts, async () => {
   return { status: 'ok', timestamp: new Date().toISOString() }
 })
 
+app.get('/live', opts, async () => {
+  return { status: 'ok', timestamp: new Date().toISOString() }
+})
+
 export { app }
