@@ -10,7 +10,7 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 | -------------------- | ----------------------- |
 | Linguagem            | TypeScript + Node.js    |
 | Testes unitários     | Vitest                  |
-| Testes E2E           | Playwright              |
+| Testes de integração | Supertest               |
 | Linting / Formatação | ESLint + Prettier       |
 | Análise estática     | Semgrep                 |
 | Review IA            | CodeRabbit              |
@@ -53,16 +53,15 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 ## Fase 3 — Workflows de Deploy
 
 - [ ] Workflow `deploy-dev.yml` — disparado no merge para `dev`
-  - [ ] Step: build da imagem Docker
-  - [ ] Step: deploy via SSH no ambiente DEV (`docker compose up -d`)
+  - [ ] Step: build da imagem Docker e push para GHCR
+  - [ ] Step: deploy via SSH no ambiente DEV (pull GHCR + `docker compose up -d`)
   - [ ] Step: aguardar health check responder (`/health` retorna `200`)
-  - [ ] Step: rodar Playwright (E2E) contra a URL do DEV
-  - [ ] Step: upload do relatório Playwright como artifact do workflow
-  - [ ] Step: smoke tests automáticos
+  - [ ] Step: rodar smoke tests (Supertest contra URL do DEV)
+  - [ ] Step: upload do relatório de testes como artifact do workflow
   - [ ] Step: notificação de falha (email para dev + revisor do PR)
 - [ ] Workflow `deploy-prod.yml` — disparado via `workflow_dispatch` ou push de tag `v*.*.*`
-  - [ ] Step: deploy via SSH no ambiente PROD
-  - [ ] Step: smoke tests contra PROD
+  - [ ] Step: deploy via SSH no ambiente PROD (pull GHCR + `docker compose up -d`)
+  - [ ] Step: rodar smoke tests contra PROD
   - [ ] Step: gerar changelog com release-please
   - [ ] Step: enviar changelog por email para `equipe@empresa.com`
   - [ ] Step: notificação de falha (email para dev + revisor)
@@ -72,8 +71,8 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 ## Fase 4 — Qualidade e Observabilidade
 
 - [ ] Configurar ruleset do Semgrep (definir quais conjuntos de regras serão aplicados e severidade mínima para bloquear o PR)
-- [ ] Escrever suíte de testes E2E cobrindo fluxos críticos da aplicação
-- [ ] Escrever smoke tests (subconjunto dos E2E, máximo 2 minutos de execução)
+- [ ] Escrever suíte de testes de integração com Supertest (cobrindo todos os endpoints da aplicação)
+- [ ] Extrair smoke tests como subconjunto dos testes de integração (máximo 2 minutos de execução)
 - [ ] Configurar relatório de cobertura visível no PR (via Vitest reporter)
 - [ ] Validar que rollback manual funciona (re-executar deploy com tag anterior)
 
@@ -93,6 +92,7 @@ Projeto de estudo para praticar e demonstrar domínio de CI/CD com GitHub Action
 
 Registradas para referência, sem previsão de implementação.
 
+- **Playwright (testes E2E com browser)** — quando a aplicação tiver interface, Playwright é a escolha certa para simular fluxos reais do usuário no browser
 - **Kubernetes (Kind ou Minikube)** — orquestração local com demonstração de self-healing
 - **Terraform** — gerenciamento de infraestrutura como código
 - **Ambientes efêmeros por PR** — cada PR sobe sua própria instância para testes isolados
